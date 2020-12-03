@@ -1,2 +1,6 @@
 venv/
 __pycache__/
+movements/__pycache__/
+.env
+.vscode/
+

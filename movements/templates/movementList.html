@@ -1,9 +1,32 @@
 
 {% extends "base.html" %}
 
-{% block title %} lista {% endblock %}
+{% block title %} Resumen mensual {% endblock %}
+    Esto es lo que hay en datos {{ datos }}
 
 {% block contenido%}
-            <h1> Lista de movimientos</h1>
-            <p>Aquí va mi lista de movimientos</p>
+            <h1> Ingresos mensuales</h1>
+            <table>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Concepto</th>
+                    <th>Importe</th>
+                </tr>
+            {% for registro in datos %}
+                <tr>
+                    <td>{{registro[0]}}</td>
+                    <td>{{registro[1]}}</td>
+                    <td>{{registro[2]}}€</td>
+                </tr>
+            {% endfor %}
+                <tr>
+                    <td>4/12/2020</td>
+                    <td>Alquiler Garaje</td>
+                    <td>70 €</td>
+                </tr>
+                <tr>
+                    <td colspan="3">Total: {{total}}€</td>
+                </tr>
+
+            </table>
 {% endblock %}
