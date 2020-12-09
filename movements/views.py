@@ -1,5 +1,5 @@
 from movements import app
-from flask import render_template
+from flask import render_template, request
 import csv
 
 @app.route("/")
@@ -15,6 +15,10 @@ def listaIngresos():
     
     return render_template("movementList.html", datos=ingresos, total=sumador)
 
-@app.route("/crealta")
+@app.route("/crealta", methods=["GET", "POST"])
 def nuevoIngreso ():
-    return "Ya si eso el miércoles te lo enseño"
+    if request.method == "POST":
+        print(request.form)
+        
+    
+    return render_template("alta.html")
