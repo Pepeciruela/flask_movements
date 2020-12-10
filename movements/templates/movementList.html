@@ -5,28 +5,22 @@
     Esto es lo que hay en datos {{ datos }}
 
 {% block contenido%}
-            <h1> Ingresos mensuales<a href="creaalta">Nuevo</a></h1>
-            <table>
-                <tr>
-                    <th>Fecha</th>
-                    <th>Concepto</th>
-                    <th>Importe</th>
-                </tr>
-            {% for registro in datos %}
-                <tr>
-                    <td>{{registro[0]}}</td>
-                    <td>{{registro[1]}}</td>
-                    <td>{{registro[2]}}€</td>
-                </tr>
-            {% endfor %}
-                <tr>
-                    <td>4/12/2020</td>
-                    <td>Alquiler Garaje</td>
-                    <td>70 €</td>
-                </tr>
-                <tr>
-                    <td colspan="3">Total: {{total}}€</td>
-                </tr>
+    <form action="creaalta" method="post">
+        <div class="field">
+            <label for="fecha">Fecha:</label>
+            <input type="date" name="fecha" required>
+        </div>
+        <div class="field">
+            <label for="concepto">Concepto:</label>
+            <input type="text" name="concepto" value="di algo">
+        </div>
+        <div class="field">
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" name="cantidad" step="0.01">
+        </div>
+        <div class="field">
+            <input type="submit" value="&check;">
+        </div>  
+    </form>
 
-            </table>
 {% endblock %}
