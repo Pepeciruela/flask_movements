@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 
 {% block title %} <Romanos></Romanos> {% endblock %}
@@ -13,13 +12,16 @@
         </tr>
     {% for registro in datos %}
         <tr>
-            <td><a href="modifica/"></a>{{ registro[0] }}</td>
-            <td>{{ registro[1] }}</td>
-            <td>{{ registro[2] }}€</td>
+            <td><a href="modifica/{{ registro['id'] }}">{{ registro['fecha'] }}</a></td>
+            <td>{{ registro['concepto'] }}</td>
+            <td>{{ registro['cantidad'] }}€</td>
         </tr>
     {% endfor %}
         <tr>
             <td colspan="3">Total: {{total}}€</td>
         </tr>
     </table>
+    {% else %}
+    <p>No hay movimientos</p>
+    {% endif %}
 {% endblock %}
