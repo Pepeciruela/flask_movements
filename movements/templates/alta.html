@@ -5,21 +5,19 @@
 {% block mi_precioso_bloque_de_formato %}
 <form action="creaalta" method="post">
     <div class="field">
-        <label for="fecha">Fecha:</label>
-        <input type="date" name="fecha" required>
+        {{ form.fecha.label }}
+        {{ form.fecha(type="date") }}
     </div>
     <div class="field">
-        <label for="concepto">Concepto:</label>
-        <input type="text" name="concepto" value="di algo">
+        {{ form.concepto.label }}
+        {{ form.concepto(placeholder='En que te lo has gastado') }}
     </div>
     <div class="field">
-        <label for="cantidad">Cantidad:</label>
-        <input type="number" name="cantidad" step="0.01">
+        {{ form.cantidad.label }}
+        {{ form.cantidad(placeholder='Escribe un número') }}
     </div>
     <div class="field">
-        <input type="submit" value="&check;">
+        {{ form.submit }}
     </div>  
 </form>
-
-
 {%  endblock %}

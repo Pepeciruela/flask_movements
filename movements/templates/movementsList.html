@@ -4,24 +4,26 @@
 
 {% block mi_precioso_bloque_de_formato %}
     <h1>Ingresos mensuales <a href="creaalta">Nuevo</a></h1>
-    <table>
-        <tr>
-            <th>Fecha</th>
-            <th>Concepto</th>
-            <th>Importe/Guita</th>
-        </tr>
-    {% for registro in datos %}
-        <tr>
-            <td><a href="modifica/{{ registro['id'] }}">{{ registro['fecha'] }}</a></td>
-            <td>{{ registro['concepto'] }}</td>
-            <td>{{ registro['cantidad'] }}€</td>
-        </tr>
-    {% endfor %}
-        <tr>
-            <td colspan="3">Total: {{total}}€</td>
-        </tr>
-    </table>
+    {% if datos|length > 0 %}
+        <table>
+            <tr>
+                <th>Fecha</th>
+                <th>Concepto</th>
+                <th>Importe/Guita</th>
+            </tr>
+        {% for registro in datos %}
+            <tr>
+                <td><a href="modifica/{{ registro['id'] }}">{{ registro['fecha'] }}</a></td>
+                <td>{{ registro['concepto'] }}</td>
+                <td>{{ registro['cantidad'] }}€</td>
+            </tr>
+        {% endfor %}
+            <tr>
+                <td colspan="3">Total: {{total}}€</td>
+            </tr>
+        </table>
     {% else %}
-    <p>No hay movimientos</p>
+        <p>No hay movimientos. crea el tuyo</p>
+        
     {% endif %}
-{% endblock %}
+    {% endblock %}
