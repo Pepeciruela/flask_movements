@@ -4,17 +4,33 @@
 
 {% block mi_precioso_bloque_de_formato %}
 <form action="creaalta" method="post">
+    {{ form.hidden_tag() }}
     <div class="field">
         {{ form.fecha.label }}
-        {{ form.fecha(type="date") }}
+        {{ form.fecha(type="date", class="semi") }}
+        {% for error in form.fecha.errors %}
+            <p class="err-msg">
+                {{ error }}
+            </p>
+        {% endfor %}
     </div>
     <div class="field">
         {{ form.concepto.label }}
         {{ form.concepto(placeholder='En que te lo has gastado') }}
+        {% for error in form.concepto.errors %}
+            <p class="err-msg">
+                {{ error }}
+            </p>
+        {% endfor %}
     </div>
     <div class="field">
         {{ form.cantidad.label }}
         {{ form.cantidad(placeholder='Escribe un número') }}
+        {% for error in form.cantidad.errors %}
+            <p class="err-msg">
+                {{ error }}
+            </p>
+        {% endfor %}
     </div>
     <div class="field">
         {{ form.submit }}
