@@ -1,4 +1,7 @@
-from movements import app
+from movements import *
 
-if __name__ == "__main__":
+import movements
+
+
+if __name__ == '__main__':
     app.run()

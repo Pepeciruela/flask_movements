@@ -3,21 +3,37 @@
 {% block title %} Modifica{% endblock %}
 
 {% block mi_precioso_bloque_de_formato %}
-<form action="/modifica/{{registro['id']}}" method="post">
-            <div class="field">
-        <label for="fecha">Fecha:</label>
-        <input type="date" name="fecha" required value="{{registro['fecha']}}">
+<form action="/modifica/{{id}}" method="post">
+    {{ form.hidden_tag() }}
+    <div class="field">
+        {{ form.fecha.label }}
+        {{ form.fecha }}
+        {% for error in form.fecha.errors %}
+            <p class="err-msg">
+                {{ error }}
+            </p>
+        {% endfor %}
     </div>
     <div class="field">
-        <label for="concepto">Concepto:</label>
-        <input type="text" name="concepto" value="{{registro['concepto']}}">
+        {{ form.concepto.label }}
+        {{ form.concepto(class="grande") }}
+        {% for error in form.concepto.errors %}
+            <p class="err-msg">
+                {{ error }}
+            </p>
+        {% endfor %}
     </div>
     <div class="field">
-        <label for="cantidad">Cantidad:</label>
-        <input type="number" name="cantidad" step="0.01" value="{{registro['cantidad']}}">
+        {{ form.cantidad.label }}
+        {{ form.cantidad }}
+        {% for error in form.cantidad.errors %}
+            <p class="err-msg">
+                {{ error }}
+            </p>
+        {% endfor %}
     </div>
     <div class="field">
-        <input type="submit" value="&check;">
+        {{ form.submit }}
     </div>  
 </form>
 

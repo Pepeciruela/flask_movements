@@ -1,5 +1,34 @@
-*{
+:root {
+    --error-color: #aa0000;
+
+}
+
+* {
     margin: 0;
     padding: 0;
-    
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.field label{
+    display: block;
+    font-weight: bold;
+}
+
+.field input {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.field input.semi {
+    width: 50%;
+}
+
+p.err-msg {
+    color: var(--error-color);
+    font-size: 50%;
 }
